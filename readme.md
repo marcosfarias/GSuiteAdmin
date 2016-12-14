@@ -7,7 +7,7 @@ Right now, my main concern is related to the setup related to Google G Suite (fo
 - Create a Credential (a Service Account)
 - Authorize APIs
 
-[![Tutorial on how to execute the previous steps](https://docs.google.com/presentation/d/A)](https://docs.google.com/presentation/d/B)
+[Tutorial on how to execute the previous steps (em Portugues Brasileiro)](https://docs.google.com/presentation/d/1rsJlZ48BYw6HiK0OqP6-7o0tKY8KVNXyTKwzS5OjR_c/edit#slide=id.g1a1712ec78_1_122)
 
 # Laravel PHP Framework
 
