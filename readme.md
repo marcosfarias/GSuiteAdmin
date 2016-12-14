@@ -1,3 +1,14 @@
+# G Suite Admin
+
+This sample app was built on top of Laravel, so for those who are familiar with Laravel, it should be easy to realize what is going under the hood and how to run it.
+
+Right now, my main concern is related to the setup related to Google G Suite (formerly known as Google Apps) environment. This setup involves basically the following steps
+- Create a Project under Google Developer Console 
+- Create a Credential (a Service Account)
+- Authorize APIs
+
+[![Tutorial on how to execute the previous steps](https://docs.google.com/presentation/d/A)](https://docs.google.com/presentation/d/B)
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
@@ -25,4 +36,3 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
-# GSuiteAdmin
