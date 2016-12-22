@@ -1,7 +1,44 @@
 # G Suite Admin
 
-This sample app was built on top of Laravel, so for those who are familiar with Laravel, it should be easy to realize what is going under the hood and how to run it.
+This sample app was built on top of Laravel, so for those who are familiar with Laravel, it should be easy to realize what is going under the hood and how to run it. For those who aren't, I provide below a Getting Started guide so you can quickly start using this.
 
+## Getting Started
+
+### Installing
+After you clone (or download) this repository, you will need to follow these steps to run the application:
+
+Install dependencies (libraries used by the project)  
+```
+composer update
+```
+
+Grant write access to storage folder
+```
+sudo chmod -R gu+w storage
+```
+
+Create a file named .env using the file .env.example as a template and update it so its values match your environment, specially the following:
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=GSuiteAdmin
+DB_USERNAME=GSuiteAdmin
+DB_PASSWORD=A-SENHA-VEM-AQUI
+```
+
+Generate a key to be used by your local instance.
+```
+php artisan key:generate
+```
+
+- Last, but not least, update the app configs cache:
+```
+php artisan config:cache
+```
+
+### Connecting to your G Suite Domain / Account
+ 
 Right now, my main concern is related to the setup related to Google G Suite (formerly known as Google Apps) environment. This setup involves basically the following steps
 - Create a Project under Google Developer Console 
 - Create a Credential (a Service Account)
