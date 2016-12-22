@@ -2,6 +2,8 @@
 
 This sample app was built on top of Laravel, so for those who are familiar with Laravel, it should be easy to realize what is going under the hood and how to run it. For those who aren't, I provide below a Getting Started guide so you can quickly start using this.
 
+*Read this in other languages: [Brazilian Portuguese](readme.pt-BR.md)*
+
 ## Getting Started
 
 ### Installing
@@ -32,19 +34,20 @@ Generate a key to be used by your local instance.
 php artisan key:generate
 ```
 
-- Last, but not least, update the app configs cache:
+Last, but not least, update the app configs cache:
 ```
 php artisan config:cache
 ```
 
 ### Connecting to your G Suite Domain / Account
- 
-Right now, my main concern is related to the setup related to Google G Suite (formerly known as Google Apps) environment. This setup involves basically the following steps
-- Create a Project under Google Developer Console 
+
+In order to enable this application to access your Google G Suite (formerly known as Google Apps) data, you need to:
+- Create a Project under Google Developer Console
 - Create a Credential (a Service Account)
 - Authorize APIs
 
-[Tutorial on how to execute the previous steps (em Portugues Brasileiro)](https://docs.google.com/presentation/d/1rsJlZ48BYw6HiK0OqP6-7o0tKY8KVNXyTKwzS5OjR_c/edit#slide=id.g1a1712ec78_1_122)
+*These steps are described in this link (in Brazilian Portuguese)
+[G Suite APIs: Configuração de Projeto, Credencial e APIs](https://docs.google.com/presentation/d/1rsJlZ48BYw6HiK0OqP6-7o0tKY8KVNXyTKwzS5OjR_c/edit#slide=id.g1a1712ec78_1_122)*
 
 # Laravel PHP Framework
 
@@ -61,10 +64,6 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 ## Official Documentation
 
 Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
 
 ## Security Vulnerabilities
 
