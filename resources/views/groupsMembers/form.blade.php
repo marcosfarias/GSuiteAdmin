@@ -36,7 +36,7 @@ Novo Membro para Grupo
 		{!! Form::label('role','Papel (pode ser MEMBER, MANAGER ou OWNER)') !!}
 		{!! Form::input('text','role', null, [ 'class' => 'form-control', 'auto-focus', 'placeholder' => 'Função: MEMBER, MANAGER ou OWNER' ]) !!}
 	
-		{!! Form::submit('Salvar',[ 'class'=>'btn btn-primary' ]) !!}
+		{!! Form::submit(trans('labels.save'),[ 'class'=>'btn btn-primary' ]) !!}
 
 	{!! Form::close() !!}
 </div>

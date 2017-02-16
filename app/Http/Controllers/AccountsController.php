@@ -137,7 +137,15 @@ class AccountsController extends Controller
 		// var_dump($id);
 		$account = Account::findOrFail($id);
 	
-		return view('accounts.form', ['account' => $account]);
+		//
+		// --------------------------------------------------------------------------------------------------------
+		// Instancia objeto do tipo Google_Service_Directory usando objeto $client retornado por GSuiteConnectionConfig::getClientToGoogleCloud()
+		$service = new \Google_Service_Directory(GSuiteConnectionConfig::getClientToGoogleCloud());
+		$optParams = array('userKey' => $account -> account_address , 'maxResults' => '100');
+		
+		$userGroups = $service->groups->listGroups($optParams);
+		
+		return view('accounts.form', ['account' => $account, 'userGroups' => $userGroups]);
 	}
 	
 	/**
@@ -166,8 +174,14 @@ class AccountsController extends Controller
 			
 			// Executa consulta usando $service para obter do Google uma instância do objeto user que se deseja atualizar
 			// Interessante observar que a chave da busca pode ser o endereço principal ou um dos alias/nicknames do usuário
-			$user = $service->users->get($currentAccountAddress);
+			$optParams = array('projection' => 'custom', 'customFieldMask' => 'gSuiteAdminSchema');
+			$user = $service->users->get($currentAccountAddress, $optParams);
 
+			echo "\n\<br/>\n\<br/>usuario no inicio \n<br/>";
+			var_dump($user);
+			echo "\n\<br/>\n<br/>";
+				
+			
 			// Atualiza atributos Nome e Sobrenome com os novos valores
 			$nameInstance = new \Google_Service_Directory_UserName();
 			$nameInstance -> setGivenName($account->first_name);
@@ -179,8 +193,34 @@ class AccountsController extends Controller
 			$user -> setPrimaryEmail($account->account_address);
 			$user -> setPassword(hash("md5", $account->password));
 			
+			//
+			$user -> setIncludeInGlobalAddressList( TRUE );
+			$user -> setSuspended(FALSE);
+			
+			//$user->setOrgUnitPath($orgUnitPath);
+
+			//echo  "\n<br/> JÁ TEM O SOURCE_ID ".$user -> getCustomSchemas()['gSuiteAdminSchema']['source_id']."\n<br/>";
+
+				
+			$gSuiteAdminSchema = $user -> getCustomSchemas();
+			if ($gSuiteAdminSchema) {
+				$gSuiteAdminSchema['gSuiteAdminSchema']['source_id'] = $account->source_id;
+
+				$user -> setCustomSchemas($gSuiteAdminSchema);
+				
+				echo  "\n<br/> DEPOIS SOURCE_ID =".$user -> getCustomSchemas()['gSuiteAdminSchema']['source_id']."\n<br/>";
+			}
+			
+			
+				
 			// Executa atualização do usuário no Google usando $service e armazena resultado em $updateUserResult
 			$updateUserResult = $service->users->update($currentAccountAddress, $user);
+			
+			$userAlias = new \Google_Service_Directory_Alias();
+			$userAlias->setAlias('nickname-para-'.$user->getPrimaryEmail());
+			
+			$service->users_aliases->insert($user->getPrimaryEmail(), $userAlias);
+			
 			//var_dump($updateUserResult);
 			//
 			// --------------------------------------------------------------------------------------------------------

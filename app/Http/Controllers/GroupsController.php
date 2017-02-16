@@ -67,6 +67,16 @@ class GroupsController extends Controller
 			$googleGroup -> setDescription($group->description);
 			//
 			$service->groups->insert($googleGroup);
+			
+			
+			//
+			$serviceGS = new \Google_Service_Groupssettings(GSuiteConnectionConfig::getClientToGoogleCloud());
+			//
+			$googleGroupSettings = new \Google_Service_Groupssettings_Groups();
+			$googleGroupSettings -> setWhoCanPostMessage("ALL_MANAGERS_CAN_POST");
+			//
+			$serviceGS->groups->update($group->email, $googleGroupSettings);
+			
 			//
 			// --------------------------------------------------------------------------------------------------------
 			//
@@ -85,7 +95,7 @@ class GroupsController extends Controller
 			$fail_message = $e->getMessage();
 		}
 		//
-		return redirect()->back()->with('fail_message', [$fail_message]);
+		//return redirect()->back()->with('fail_message', [$fail_message]);
 		//return Redirect::to('groups/'.$group->id.'/edit')->with('fail_message', $fail_message);
 	}
 	

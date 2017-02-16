@@ -42,7 +42,10 @@ class GSuiteConnectionConfig extends Model
 	
 		//
 		$client->addScope('https://www.googleapis.com/auth/admin.directory.group');
+		$client->addScope('https://www.googleapis.com/auth/apps.groups.settings');		
 		$client->addScope('https://www.googleapis.com/auth/admin.directory.user');
+		$client->addScope('https://www.googleapis.com/auth/admin.directory.orgunit');
+		$client->addScope('https://www.googleapis.com/auth/admin.directory.userschema');
 		//$client->setScopes($config->scopes);
 		
 		//

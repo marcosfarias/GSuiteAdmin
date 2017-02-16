@@ -10,7 +10,8 @@ class Account extends Model
 			'first_name',
 			'last_name',
 			'account_address',
-			'password'
+			'password',
+			'source_id'
 	];
 	
 }

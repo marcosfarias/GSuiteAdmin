@@ -6,8 +6,8 @@
 <div class="col-md-10 col-md-offset-1">
 <div class="panel panel-default">
 <div class="panel-heading">
-Grupos
-<a class="pull-right" href="{{ url('groups/add')}}">Novo Grupo</a>
+{{ trans('modules.groups') }}
+<a class="pull-right" href="{{ url('groups/add')}}">{{ trans('modules.group.new') }}</a>
 </div>
 
 <div class="panel-body">
@@ -18,10 +18,10 @@ Grupos
 		<div class="alert alert-success">{{Session::get('success_message')}}</div>
 	@endif
 	<table class="table">
-		<th>Nome</th>
-		<th>E-mail</th>
-		<th>Membros Diretos</th>
-		<th>Ações</th>
+		<th>{{ trans('labels.name') }}</th>
+		<th>{{ trans('labels.email') }}</th>
+		<th>{{ trans('labels.directMembers') }}</th>
+		<th>{{ trans('labels.actions') }}</th>
 		<tbody>
 		@foreach($groups as $group)
 			<tr>
@@ -29,8 +29,8 @@ Grupos
 			<td>{{$group->email}}</td>
 			<td>{{$group->directMembersCount}}</td>
 			<td>
-				<a href="groups/{{$group->id}}/members" class="btn btn-default btn-sm">Membros</a>
-				<a href="groups/{{$group->id}}/edit" class="btn btn-default btn-sm">Editar</a>
+				<a href="groups/{{$group->id}}/members" class="btn btn-default btn-sm">{{ trans('labels.members') }}</a>
+				<a href="groups/{{$group->id}}/edit" class="btn btn-default btn-sm">{{ trans('labels.edit') }}</a>
 				{!! Form::model($group, ['method' => 'DELETE', 'url'=>'groups/'.$group->id, 'style'=> 'display:inline'] ) !!}
 				<button type="submit" class="btn btn-default btn-sm">Excluir</button>
 				{!! Form::close() !!}
