@@ -2,7 +2,7 @@
 
 Esta aplicação de exemplo foi construída usando Laravel, de maneira que deverá ser fácil, em especial para os que estão familiarizados com este framework, entender o funcionamento desta app e como executá-la.
 
-De qualquer maneira, a seção chamada Primeiros poderá guiá-lo para rapidamente ter esta app rodando no seu ambiente.
+De qualquer maneira, a seção chamada Primeiros Passos poderá guiá-lo para rapidamente ter esta app rodando no seu ambiente.
 
 *Read this in other languages: [English](README.md)*
 
@@ -10,6 +10,15 @@ De qualquer maneira, a seção chamada Primeiros poderá guiá-lo para rapidamen
 
 ### Instalação
 Depois que você clonou (ou fez o download) deste repositório, você precisará:
+
+Instalar o Composer, caso você ainda não tenha:
+```
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+mv composer.phar /usr/local/bin/composer
+```
 
 Instalar as dependências (que são libraries utilizadas por este projeto)  
 ```
