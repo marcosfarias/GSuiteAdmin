@@ -40,7 +40,12 @@ DB_USERNAME=GSuiteAdmin
 DB_PASSWORD=A-SENHA-VEM-AQUI
 ```
 
-Gerar uma chave para ser usada pela instância local do seu projeto.
+Para recriar o banco de dados (estrutura, dados, ...) que foram criadas nas Migrations do seu projeto Laravel:
+```
+php artisan migrate
+```
+
+Gerar uma chave para ser usada pela instância local do seu projeto:
 ```
 php artisan key:generate
 ```
