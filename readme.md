@@ -9,6 +9,16 @@ This sample app was built on top of Laravel, so for those who are familiar with 
 ### Installing
 After you clone (or download) this repository, you will need to follow these steps to run the application:
 
+
+Install Composer, in case you don't have it:
+```
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+mv composer.phar /usr/local/bin/composer
+```
+
 Install dependencies (libraries used by the project)  
 ```
 composer update
@@ -27,6 +37,11 @@ DB_PORT=3306
 DB_DATABASE=GSuiteAdmin
 DB_USERNAME=GSuiteAdmin
 DB_PASSWORD=A-SENHA-VEM-AQUI
+```
+
+To recreate database (structure, data, ...) that were created by Migrations in your project Laravel:
+```
+php artisan migrate
 ```
 
 Generate a key to be used by your local instance.
